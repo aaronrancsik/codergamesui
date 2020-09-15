@@ -1,0 +1,45 @@
+@import '~vuetify/src/styles/styles.sass';
+
+$new-colors: (
+    'background': var(--v-background-base, map-get($material-dark, 'background')) !important,
+    // 'background': map-get($red, 'lighten-4') !important,
+    // 'app-bar': map-get($red, 'lighten-4') !important,
+    'cards': var(--v-cards-base, map-get($material-dark, 'cards')) !important,
+    // 'bg-color': map-get($red, 'lighten-4') !important,
+    // 'fg-color': map-get($red, 'lighten-4') !important,
+    // 'text-color': map-get($red, 'lighten-4') !important,
+    // 'buttons': (
+    //   'disabled': map-get($red, 'lighten-4') !important,
+    //   'focused': map-get($red, 'lighten-4') !important,
+    //   'focused-alt': map-get($red, 'lighten-4') !important,
+    //   'pressed': map-get($red, 'lighten-4') !important,
+    // ),
+
+);
+$material-dark: map-merge($material-dark, $new-colors);
+
+
+$new-colors2: (
+    'background': var(--v-background-base, map-get($material-light, 'background')) !important,
+    // 'background': map-get($red, 'lighten-4') !important,
+    // 'app-bar': map-get($red, 'lighten-4') !important,
+    'cards': var(--v-cards-base, map-get($material-light, 'cards')) !important,
+    // 'bg-color': map-get($red, 'lighten-4') !important,
+    // 'fg-color': map-get($red, 'lighten-4') !important,
+    // 'text-color': map-get($red, 'lighten-4') !important,
+    // 'buttons': (
+    //   'disabled': map-get($red, 'lighten-4') !important,
+    //   'focused': map-get($red, 'lighten-4') !important,
+    //   'focused-alt': map-get($red, 'lighten-4') !important,
+    //   'pressed': map-get($red, 'lighten-4') !important,
+    // ),
+
+);
+$material-light: map-merge($material-light, $new-colors2);
+
+// $material-light: map-merge($material-light, (
+//   'background': var(--v-background-base, map-get($material-light, 'background')) !important,
+// ));
+// $material-dark: map-merge($material-dark, (
+//   'background': var(--v-background-base, map-get($material-dark, 'background')) !important,
+// ));
