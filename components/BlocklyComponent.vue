@@ -68,9 +68,6 @@ export default {
 </script>
 
 <style scoped>
-#bc {
-  overflow: hidden;
-}
 .blocklyDiv {
   height: 100%;
   width: 100%;
