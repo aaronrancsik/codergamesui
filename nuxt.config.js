@@ -42,7 +42,10 @@ export default {
     ],
   },
   css: [],
-  plugins: ['~plugins/blockly.js'],
+  plugins: [
+    '~plugins/blockly.js',
+    { src: 'node_modules/nuxtjs-phaser', mode: 'client' },
+  ],
   components: true,
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
@@ -55,48 +58,21 @@ export default {
     [
       'nuxt-i18n',
       {
-        // lazy: true,
-        locales: ['hu', 'en'],
+        lazy: true,
+        locales: [
+          {
+            code: 'en',
+            iso: 'en-US',
+            file: 'en-US.js',
+              },
+          {
+            code: 'hu',
+            iso: 'hu-HU',
+            file: 'hu-HU.js',
+            },
+        ],
         defaultLocale: 'hu',
-        vueI18n: {
-          fallbackLocale: 'en',
-          messages: {
-            en: {
-              greeting: 'Hello world!',
-              register: {
-                head: 'Regisztráció',
-                name: 'Bece név',
-                email: 'E-mail cím',
-                loginBtn: 'Regisztrálok',
-                school: 'Iskolád neve',
-                pass: 'Jelszó',
-              },
-            },
-            hu: {
-              greeting: 'Helló világ!',
-              register: {
-                head: 'Regisztráció',
-                name: 'Bece név',
-                email: 'E-mail cím',
-                regBtn: 'Regisztrálok',
-                loginBtn: 'Már regisztráltam',
-                school: 'Iskolád neve',
-                pass: 'Jelszó',
-              },
-              login: {
-                head: 'Bejelentkezés',
-                email: 'E-mail cím',
-                regBtn: 'Még nem regisztráltam',
-                loginBtn: 'Belépés',
-                pass: 'Jelszó',
-              },
-              home: {
-                start: 'Kezdés',
-                register: 'Regisztrálok',
-              },
-            },
-          },
-        },
+        langDir: 'lang/',
       },
     ],
   ],
