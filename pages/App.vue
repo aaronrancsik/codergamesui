@@ -1,98 +1,20 @@
 <template>
   <div class="App">
-    <v-row>
-      <v-col md="12" sm="12" xs="12" class="d-flex flex-column test pa-1">
-        <v-toolbar dense elevation="0">
-          <v-toolbar-items>
-            <v-btn class="font-weight-black" color="success"> SAVE </v-btn>
-          </v-toolbar-items>
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-            <v-btn outlined class="font-weight-black" color="error">
-              STOP
-            </v-btn>
-            <v-divider vertical></v-divider>
-            <v-btn outlined class="font-weight-black" color="success">
-              RUN
-            </v-btn>
-          </v-toolbar-items>
-          <v-spacer></v-spacer>
-          <v-spacer></v-spacer>
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-            <v-btn outlined class="font-wight-black"> View </v-btn>
-          </v-toolbar-items>
-        </v-toolbar>
-      </v-col>
-      <!-- <v-col xs="12" class="d-flex flex-column test pa-1">
-        <v-list>
-          <v-list-item>
-            <v-list-item-content>
-              <v-btn outlined color="primary">text</v-btn>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item @click="doing">
-            <v-list-item-content>
-              <v-list-item-title> Mentés</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-col> -->
-      <v-col xl="6" lg="6" md="12" xs="12" class="d-flex flex-column test pa-1">
-        <v-card class="d-flex flex-column" outlined tile>
-          <!-- <v-tabs v-model="tab">
-            <v-tab key="codeEditor"> Block Editor </v-tab>
-            <v-tab key="jscode"> JavaScript </v-tab>
-          </v-tabs> -->
-          <!-- <v-tabs-items v-model="tab">
-            <v-tab-item key="codeEditor"> -->
-          <BlocklyComponent ref="foo" :options="options"></BlocklyComponent>
-          <!-- </v-tab-item>
-            <v-tab-item key="jscode" style="min-height: calc(100vh - 150px)"> -->
-          <!-- </v-tab-item>
-          </v-tabs-items> -->
+    <v-row class="ma-0 da-0">
+      <v-col cols="12" lg="6" class="pa-2 d-flex flex-column">
+        <v-card elevation="24">
+          <BlocklyComponent
+            v-model="code"
+            :options="options"
+          ></BlocklyComponent>
         </v-card>
       </v-col>
-      <v-col xl="6" lg="6" md="6" sm="12" class="d-flex flex-column test pa-1">
-        <v-card class="d-flex flex-column" outlined tile>
-          <JavaScriptInterpreter :code="'88+5'" />
-        </v-card>
-      </v-col>
-      <v-col xl="6" lg="6" md="6" sm="12" class="d-flex flex-column test pa-1">
-        <v-card class="d-flex flex-column" outlined tile>
-          <div id="code">
-            <button @click="showCode()">Show JavaScript</button>
-            <!-- eslint-disable-next-line -->
-                <pre v-html="code"></pre>
-          </div>
+      <v-col cols="12" lg="6" class="pa-2 d-flex flex-column">
+        <v-card elevation="24">
+          <DashGame></DashGame>
         </v-card>
       </v-col>
     </v-row>
-
-    <!-- <BlocklyComponent id="blockly1">
-      <block type="controls_ifelse"></block>
-      <block type="logic_compare"></block>
-      <block type="logic_operation"></block>
-      <block type="controls_repeat_ext">
-        <value name="TIMES">
-          <shadow type="math_number">
-            <field name="NUM">10</field>
-          </shadow>
-        </value>
-      </block>
-      <block type="logic_operation"></block>
-      <block type="logic_negate"></block>
-      <block type="logic_boolean"></block>
-      <block type="logic_null" disabled="true"></block>
-      <block type="logic_ternary"></block>
-      <block type="text_charAt">
-        <value name="VALUE">
-          <block type="variables_get">
-            <field name="VAR">text</field>
-          </block>
-        </value>
-      </block>
-    </BlocklyComponent> -->
   </div>
 </template>
 
@@ -104,9 +26,21 @@ export default {
   name: 'App',
   data() {
     return {
-      tab: null,
       code: '',
       options: {
+        comments: false,
+        collapse: false,
+        zoom: {
+          controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 1,
+          minScale: 0.7,
+          scaleSpeed: 1.1,
+          pinch: true,
+        },
+        renderer: 'thrasos',
+        horizontalLayout: false,
         theme: 'dark',
         media: process.env.baseUrl + '/media/',
         grid: {
@@ -115,6 +49,7 @@ export default {
           colour: '#353535',
           snap: true,
         },
+        toolboxPosition: 'end',
         toolbox: `<xml>
           <category name="Logic" colour="%{BKY_LOGIC_HUE}">
             <block type="controls_if"></block>
@@ -169,8 +104,8 @@ export default {
 </script>
 
 <style scoped>
-.test {
-  min-width: 320px;
+.rel {
+  position: relative;
 }
 
 .App {
@@ -179,19 +114,4 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-
-html,
-body {
-  margin: 0;
-}
-
-/* #code {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 50%;
-  height: 50%;
-  margin: 0;
-  background-color: beige;
-} */
 </style>
