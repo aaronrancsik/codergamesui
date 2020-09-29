@@ -64,12 +64,12 @@ export default {
             code: 'en',
             iso: 'en-US',
             file: 'en-US.js',
-              },
+          },
           {
             code: 'hu',
             iso: 'hu-HU',
             file: 'hu-HU.js',
-            },
+          },
         ],
         defaultLocale: 'hu',
         langDir: 'lang/',
@@ -109,7 +109,20 @@ export default {
       iconfont: 'md',
     },
   },
-  build: {},
+  build: {
+    extend(config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = 'eval-source-map'
+      }
+      config.module.rules.push({
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+      })
+    },
+  },
   env: {
     baseUrl: process.env.BASE_URL,
   },
