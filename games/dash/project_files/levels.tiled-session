@@ -1,0 +1,37 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "level1.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "level1.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 410,
+                "y": 976
+            }
+        },
+        "level1.tmx#atlas_v1": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        }
+    },
+    "map.lastUsedExportFilter": "JSON map files (*.json)",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "level1.tmx"
+    ],
+    "project": "levels.tiled-project",
+    "recentFiles": [
+        "level1.tmx"
+    ],
+    "tileset.embedInMap": true
+}
