@@ -11,7 +11,7 @@
       </v-col>
       <v-col cols="12" lg="6" class="pa-2 d-flex flex-column">
         <v-card elevation="24">
-          <DashGame></DashGame>
+          <DashGame name="hello"></DashGame>
         </v-card>
       </v-col>
     </v-row>

@@ -46,7 +46,14 @@ export default {
     '~plugins/blockly.js',
     { src: 'node_modules/nuxtjs-phaser', mode: 'client' },
   ],
-  components: true,
+  components: {
+    dirs:[
+      './components',
+      './components/Games',
+      './components/Games/Dash'
+    ]
+  },
+
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
