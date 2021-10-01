@@ -39,9 +39,9 @@ export default {
     // jump() {
     //   this.emitPhaserEvent('jump')
     // },
-    // walkLeft() {
-    //   this.emitPhaserEvent('walkLeft')
-    // },
+    walkLeft() {
+      this.emitPhaserEvent('walkLeft')
+    },
     // walkRight() {
     //   this.emitPhaserEvent('walkRight')
     // },

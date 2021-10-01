@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     test() {
-      const myInterpreter = new Interpreter(this.currentCode)
+      const myInterpreter = new Interpreter(this.code)
       myInterpreter.run()
 
       // eslint-disable-next-line no-console
