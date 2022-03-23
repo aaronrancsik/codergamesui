@@ -57,7 +57,8 @@ export default {
     this.workspace = Blockly.inject(this.$refs.blocklyDiv, options)
     this.workspace.addChangeListener(this.updateCurrentCode)
     Blockly.Blocks.iterations = {
-      init: () => {
+      // eslint-disable-next-line
+      init: function () {
         this.appendDummyInput().appendField('Lépések')
         this.appendStatementInput('iterationsin').setCheck(null)
         this.setColour(0)
@@ -77,7 +78,8 @@ export default {
     }
 
     Blockly.Blocks.stepforward = {
-      init: () => {
+      // eslint-disable-next-line
+      init: function () {
         this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField('Fel lépés ⬆')
@@ -95,7 +97,8 @@ export default {
     }
 
     Blockly.Blocks.stepback = {
-      init: () => {
+      // eslint-disable-next-line
+      init: function () {
         this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField('Le lépés ⬇')
@@ -113,7 +116,8 @@ export default {
     }
 
     Blockly.Blocks.turnright = {
-      init: () => {
+      // eslint-disable-next-line
+      init: function () {
         this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField('Jobbra Lépés ↩ ')
@@ -131,7 +135,8 @@ export default {
     }
 
     Blockly.Blocks.turnleft = {
-      init: () => {
+      // eslint-disable-next-line
+      init: function () {
         this.appendDummyInput()
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField('Balra lépés ↪')
