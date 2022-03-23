@@ -56,6 +56,97 @@ export default {
     }
     this.workspace = Blockly.inject(this.$refs.blocklyDiv, options)
     this.workspace.addChangeListener(this.updateCurrentCode)
+    Blockly.Blocks.iterations = {
+      init: () => {
+        this.appendDummyInput().appendField('Lépések')
+        this.appendStatementInput('iterationsin').setCheck(null)
+        this.setColour(0)
+        this.setTooltip('')
+        this.setHelpUrl('')
+      },
+    }
+    Blockly.JavaScript.iterations = (block) => {
+      block.setDeletable(false)
+      const iterationsin = Blockly.JavaScript.statementToCode(
+        block,
+        'iterationsin'
+      )
+      // TODO: Assemble JavaScript into code variable.
+      const code = iterationsin
+      return code
+    }
+
+    Blockly.Blocks.stepforward = {
+      init: () => {
+        this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField('Fel lépés ⬆')
+        this.setPreviousStatement(true, null)
+        this.setNextStatement(true, null)
+        this.setColour(33)
+        this.setTooltip('')
+        this.setHelpUrl('')
+      },
+    }
+    Blockly.JavaScript.stepforward = (block) => {
+      // TODO: Assemble JavaScript into code variable.
+      const code = 'StepForward();\n'
+      return code
+    }
+
+    Blockly.Blocks.stepback = {
+      init: () => {
+        this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField('Le lépés ⬇')
+        this.setPreviousStatement(true, null)
+        this.setNextStatement(true, null)
+        this.setColour(33)
+        this.setTooltip('')
+        this.setHelpUrl('')
+      },
+    }
+    Blockly.JavaScript.stepback = (block) => {
+      // TODO: Assemble JavaScript into code variable.
+      const code = 'StepBack();\n'
+      return code
+    }
+
+    Blockly.Blocks.turnright = {
+      init: () => {
+        this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField('Jobbra Lépés ↩ ')
+        this.setPreviousStatement(true, null)
+        this.setNextStatement(true, null)
+        this.setColour(200)
+        this.setTooltip('')
+        this.setHelpUrl('')
+      },
+    }
+    Blockly.JavaScript.turnright = (block) => {
+      // TODO: Assemble JavaScript into code variable.
+      const code = 'TurnRight();\n'
+      return code
+    }
+
+    Blockly.Blocks.turnleft = {
+      init: () => {
+        this.appendDummyInput()
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField('Balra lépés ↪')
+        this.setPreviousStatement(true, null)
+        this.setNextStatement(true, null)
+        this.setColour(200)
+        this.setTooltip('')
+        this.setHelpUrl('')
+      },
+    }
+    Blockly.JavaScript.turnleft = (block) => {
+      // TODO: Assemble JavaScript into code variable.
+      const code = 'TurnLeft();\n'
+      return code
+    }
   },
 
   methods: {

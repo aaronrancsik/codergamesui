@@ -51,6 +51,12 @@ export default {
         },
         toolboxPosition: 'end',
         toolbox: `<xml>
+           <category name="Control" colour="FF8000">
+            <block type="stepforward"></block>
+            <block type="stepback"></block>
+            <block type="turnleft"></block>
+            <block type="turnright"></block>
+          </category>
           <category name="Logic" colour="%{BKY_LOGIC_HUE}">
             <block type="controls_if"></block>
             <block type="logic_compare"></block>
