@@ -91,15 +91,6 @@ export default {
       },
     }
   },
-  methods: {
-    showCode() {
-      this.code = this.$store.state.code.currentCode
-    },
-    doing() {
-      // eslint-disable-next-line no-console
-      console.log('yay')
-    },
-  },
 }
 </script>
 

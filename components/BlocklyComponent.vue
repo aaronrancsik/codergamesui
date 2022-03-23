@@ -57,10 +57,19 @@ export default {
     this.workspace = Blockly.inject(this.$refs.blocklyDiv, options)
     this.workspace.addChangeListener(this.updateCurrentCode)
   },
+
   methods: {
+    showCode() {
+      this.code = this.$store.state.code.currentCode
+    },
+    doing() {
+      // eslint-disable-next-line no-console
+      console.log('yay')
+    },
     updateCurrentCode() {
       const c = BlocklyJS.workspaceToCode(this.workspace)
       // this.$store.dispatch('code/updateCurrentCode', c)
+      this.$store.commit('code/updateCurrentCode', c)
       this.$emit('update', c)
     },
   },
