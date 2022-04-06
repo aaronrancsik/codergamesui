@@ -32,7 +32,11 @@ export default class GameFieldScene extends Phaser.Scene {
     map.createStaticLayer('Finish', tileset)
     map.createStaticLayer('Diamonds', tileset)
     map.createStaticLayer('Titanium', tileset)
-    // map.createStaticLayer('Player', tileset)
+
+    const playerLayer = map.createStaticLayer('Player', tileset)
+    // TODO: we need multiple player later.
+    this.player = playerLayer.createFromTiles(6, 0, {key:'tilemap', frame: 6}).pop()
+    this.player.setOrigin(0)
     
     // const debugGraphics = this.add.graphics().setAlpha(0.5)
     // walls.renderDebug(debugGraphics,{
@@ -40,29 +44,10 @@ export default class GameFieldScene extends Phaser.Scene {
     //     collidingTileColor: new Phaser.Display.Color(243, 234, 48, 255),
     //     faceColor: new Phaser.Display.Color(40, 39, 37, 255)
     // })
-
-    this.player = this.add.sprite(16,16, 'tiles', 5)
-    this.anims.create({
-      key: 'left',
-      frames: this.anims.generateFrameNumbers('tiles', {start: 12, end: 18}),
-      frameRate: 30,
-      repeat: -1
-    })
-
-    this.anims.create({
-      key: 'right',
-      frames: this.anims.generateFrameNumbers('tiles', {start: 19, end: 25}),
-      frameRate: 30,
-      repeat: -1
-    })
     
-        
-    this.anims.create({
-      key: 'idle',
-      frames: this.anims.generateFrameNumbers('tiles', {start: 8, end: 9}),
-      frameRate: 5,
-      repeat: -1
-    })
+    this.createPlayerAnimations()
+
+    //this.player = this.add.sprite(16,16, 'tiles', 5)
 
 
   }
@@ -85,5 +70,30 @@ export default class GameFieldScene extends Phaser.Scene {
         this.player.anims.play('idle',true)
       }
     }
+  }
+
+  createPlayerAnimations()
+  {
+    this.anims.create({
+      key: 'left',
+      frames: this.anims.generateFrameNumbers('tiles', {start: 12, end: 18}),
+      frameRate: 30,
+      repeat: -1
+    })
+
+    this.anims.create({
+      key: 'right',
+      frames: this.anims.generateFrameNumbers('tiles', {start: 19, end: 25}),
+      frameRate: 30,
+      repeat: -1
+    })
+    
+        
+    this.anims.create({
+      key: 'idle',
+      frames: this.anims.generateFrameNumbers('tiles', {start: 8, end: 9}),
+      frameRate: 5,
+      repeat: -1
+    })
   }
 }
