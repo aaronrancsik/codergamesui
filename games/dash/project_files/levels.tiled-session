@@ -24,12 +24,14 @@
             "scaleInEditor": 2
         }
     },
-    "map.lastUsedExportFilter": "JSON map files (*.json)",
+    "last.exportedFilePath": "/home/aaron/Documents/Proj/BSC_THESIS/codergamesui/games/dash/level2",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "openFiles": [
         "level1.tmx"
     ],
     "project": "levels.tiled-project",
+    "property.type": "bool",
     "recentFiles": [
         "level1.tmx"
     ],
